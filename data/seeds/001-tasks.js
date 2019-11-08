@@ -2,8 +2,7 @@
 const tasks = [
   {
     desc: "Talking nice guy",
-    notes: "hodor hodor hodor",
-    completed: "false"
+    notes: "hodor hodor hodor"
   }
 ]
 exports.seed = function(knex) {

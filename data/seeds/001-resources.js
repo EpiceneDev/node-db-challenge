@@ -1,8 +1,7 @@
 const resources = [
   {
     name: "Big Person",
-    desc: "Very large and smarter than you think.",
-    completed: "false"
+    desc: "Very large and smarter than you think."
   }
 ]
 exports.seed = function(knex) {

@@ -3,14 +3,14 @@ const projects = [
   {
     name: "Project1",
     desc: "Bring em together",
-    completed: "false"
+    resource_id: "1"
   }
 ]
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('projects')
+  return knex('project')
     .then(function () {
       // Inserts seed entries
-      return knex('projects').insert(projects);
+      return knex('project').insert(projects);
     });
 };
