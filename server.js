@@ -5,8 +5,12 @@ const helmet = require('helmet');
 
 const server = express();
 server
-    .use(helmet)
+    .use(helmet())
     .use(express.json())
    // .use('/api/projects', projectRouter);
+
+server.get("/", (req, res) => {
+    res.send("Server is running....")
+})
 
 module.exports = server;
