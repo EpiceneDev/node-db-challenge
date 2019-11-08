@@ -2,8 +2,9 @@
 exports.up = function(knex) {
     return knex.schema
         .createTable('project', tbl => {
-            tbl.increments();
             
+            tbl.increments();
+
             tbl.string("name").notNullable().unique();
 
             tbl.text('desc', 256);
