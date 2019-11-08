@@ -12,6 +12,7 @@ function addTask(task) {
 };
 
 function getTasks() {
+    
     return db('tasks as t')
     .join('project as p', 'p.id', 't.project_id')
     .select('p.project_name', 'p.description as project_description', 't.*')
