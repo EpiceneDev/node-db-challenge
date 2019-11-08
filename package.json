@@ -4,6 +4,8 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/EpiceneDev/node-db-challenge/issues"
   },
-  "homepage": "https://github.com/EpiceneDev/node-db-challenge#readme"
+  "homepage": "https://github.com/EpiceneDev/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "knex": "^0.20.1",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
