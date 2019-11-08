@@ -7,9 +7,9 @@ const projectTasks = [
 ]
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('projects-tasks')
+  return knex('projectsTasks')
     .then(function () {
       // Inserts seed entries
-      return knex('projects-tasks').insert(projectTasks);
+      return knex('projectsTasks').insert(projectTasks);
     });
 };

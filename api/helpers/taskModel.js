@@ -5,14 +5,25 @@ module.exports = {
   getTasks
 };
 
-
-function getTasks() {
-    return db('tasks');
+function addTask(task) {
+    return db('tasks').insert(task).then(taskData => {
+        return taskData;
+    })
 };
 
-
-function addTask(taskData) {
-  return db('tasks').insert(taskData).then(result => {
-      return result;
-  })
+function getTasks() {
+    return db('tasks as t')
+    .join('project as p', 'p.id', 't.project_id')
+    .select('p.project_name', 'p.description as project_description', 't.*')
+    .then(tasks => {
+        const convertedTasks = tasks.map(task => {
+            if(task.completed === 1) {
+                task.completed = true;
+            } else {
+                task.completed = false;
+            }
+            return task;
+        })
+        return convertedTasks;
+    });
 };
