@@ -12,16 +12,16 @@ router.get("/", (req, res) => {
    });
 });
 
-router.post('/', (req, res) => {
-    const task = req.body;
-  
-    db('projects').insert(task)
-    .then(ids => {
-      res.status(201).json({ created: ids[0] });
-    })
-    .catch(err => {
-      res.status(500).json({ message: 'Failed to create new task' });
-    });
-  });
+router.post("/", (req, res) => {
+    const taskData = req.body;
+    Tasks.add(taskData)
+      .then(task => {
+        res.status(201).json(task);
+      })
+      .catch(err => {
+        res.status(500).json({ message: "Failed to create new Task" });
+      });
+}); 
+
 
 module.exports = router;

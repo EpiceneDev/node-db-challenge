@@ -12,16 +12,15 @@ router.get("/", (req, res) => {
    });
 });
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     const resource = req.body;
-  
-    db('projects').insert(resource)
-    .then(ids => {
-      res.status(201).json({ created: ids[0] });
-    })
-    .catch(err => {
-      res.status(500).json({ message: 'Failed to create new resource' });
-    });
-  });
+    Resource.addResource(resource)
+      .then(resource => {
+        res.status(201).json(resource);
+      })
+      .catch(err => {
+        res.status(500).json({ message: "Failed to create new resource" });
+      });
+  }); 
 
 module.exports = router;
