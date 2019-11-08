@@ -1,13 +1,15 @@
-
+const projectTasks = [
+  {
+    project_id: "1",
+    task_id: "1",
+    completed: "false"
+  }
+]
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('project-tasks')
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+      return knex('project-tasks').insert(projectTasks);
     });
 };
