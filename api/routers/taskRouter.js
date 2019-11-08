@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Tasks = require("../helpers/projectsModel.js");
+const Tasks = require("../helpers/taskModel.js");
 
 router.get("/", (req, res) => {
  Tasks.getTasks()
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
     const taskData = req.body;
-    Tasks.add(taskData)
+    Tasks.addTask(taskData)
       .then(task => {
         res.status(201).json(task);
       })

@@ -1,6 +1,6 @@
 exports.up = function(knex) {
     return knex.schema
-        .createTable('projects-tasks', tbl => {
+        .createTable('projectsTasks', tbl => {
             
             tbl.increments();
 
@@ -20,12 +20,12 @@ exports.up = function(knex) {
                 .onDelete("CASCADE")
                 .onUpdate("CASCADE");
 
-            tbl 
-                .boolean("complete").defaultTo(false)
+            // tbl 
+            //     .boolean("complete").defaultTo(false)
         })
 };
 
 exports.down = function(knex) {
     return knex.schema
-      .dropTableIfExists('projects-tasks');
+      .dropTableIfExists('projectsTasks');
   };
